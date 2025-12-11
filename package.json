@@ -7,12 +7,22 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@mkkellogg/gaussian-splats-3d": "^0.4.7",
+    "axios": "^1.11.0",
+    "camera-controls": "^3.1.0",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "element-plus": "^2.11.2",
+    "offset": "^0.0.1",
+    "three": "^0.180.0",
+    "vue": "^3.2.13",
+    "vue-router": "^4.5.1",
+    "zoomtastic": "^2.3.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "less": "^4.4.1",
+    "less-loader": "^12.3.0"
   },
   "browserslist": [
     "> 1%",
