@@ -21,3 +21,15 @@ export function getExhibitionData(itemId) {
     params: { itemId }
   })
 }
+
+
+export function uploadFile(formData) {
+  return request({
+    url: '/minio/upload',
+    method: 'post',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data' 
+    }
+  })
+}

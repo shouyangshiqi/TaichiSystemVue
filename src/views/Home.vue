@@ -1,8 +1,14 @@
 <template>
+  
   <div class="home-page">
     <div class="header">
       <h1>体育动作展示系统</h1>
-      <el-button @click="logout">Logout</el-button>
+      <div>
+        <el-button type="primary" @click="$router.push('/upload')" style="margin-right: 10px;">
+          上传资源
+        </el-button>
+        <el-button @click="logout">Logout</el-button>
+      </div>
     </div>
     
      <!-- 轮播图区域 -->

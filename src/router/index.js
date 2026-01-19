@@ -23,6 +23,11 @@ const routes = [
     component: () => import('@/views/ExhibitionHall.vue')
   },
   {
+    path: '/upload',
+    name: 'Upload',
+    component: () => import('@/views/Upload.vue')
+  },
+  {
     path: '/',
     redirect: '/login'
   }

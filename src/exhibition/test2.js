@@ -99,10 +99,31 @@ export async function initExhibition(container, itemId) {
     baiding_OBJ.material = m.baiding_M;
 
     // 自定义info
+    // 自定义info - 改为视频墙
     const info3d = gltf.scene.getObjectByName("jianjieqiang");
+    
+    // 1. 创建 video DOM 元素
+    const video = document.createElement('video');
+    video.src = "./assets/pictures2/main.mp4"; // ⚠️ 请替换为你实际的视频路径
+    video.crossOrigin = "anonymous";
+    video.loop = true;   // 设置循环播放
+    video.muted = true;  // ⚠️ 重要：浏览器通常禁止自动播放有声视频，设置为静音可确保自动播放
+    video.playsInline = true; // 兼容移动端不全屏播放
+    video.play(); // 开始播放
+
+    // 2. 创建 VideoTexture
+    const videoTexture = new THREE.VideoTexture(video);
+    videoTexture.center.set(0.5, 0.5); // 设置旋转中心为纹理中心
+    videoTexture.rotation = Math.PI;   // 旋转 180 度
+    // 优化纹理设置（可选）
+    videoTexture.minFilter = THREE.LinearFilter;
+    videoTexture.magFilter = THREE.LinearFilter;
+    
+    // 3. 应用到材质
     info3d.material = new THREE.MeshBasicMaterial({
       color: 0xffffff,
-      map: new THREE.TextureLoader().load("./assets/pictures2/main2.png"),
+      map: videoTexture,
+      side: THREE.FrontSide // 根据需要设置渲染面
     });
   });
 
